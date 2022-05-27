@@ -1,0 +1,32 @@
+let input_task_name = document.getElementsByClassName('task_name')[0];
+// console.log(input_task_name)
+
+input_task_name.addEventListener('focus',function(){
+    this.closest('div.task_add_block').classList.add('-on');
+})
+input_task_name.addEventListener('blur',function(){
+    this.closest('div.task_add_block').classList.remove('-on');
+})
+
+input_task_name.addEventListener('keyup',function(e){
+  console.log( e.which);
+if(e.which === 13){
+  let button_task_add = document.getElementsByClassName('task_add')[0];
+  button_task_add.click()
+}
+})
+
+
+let task_add =document.getElementsByClassName('task_add')[0];
+task_add.addEventListener('click',function(){
+    let task_text = (input_task_name.value).trim(); 
+    // console.log(task_text)
+    if(task_text !== ''){
+        let item_id = Date.now();
+        // console.log(item_id);
+        let str =`
+        <li data-id='${item_id}'>
+        <div class="item_flex">
+          <div class="left_block">
+            <div class="btn_flex">
+              <button type="button" clas
